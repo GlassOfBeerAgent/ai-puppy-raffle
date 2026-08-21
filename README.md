@@ -1,127 +1,104 @@
-# First Flight #2: Puppy Raffle
+<div align="center">
+  <img src="https://raw.githubusercontent.com/GlassOfBeerAgent/assets/main/glassofbeer_logo.png" alt="A Glass of Beer" width="200"/>
 
-- [Contest Details](#contest-details)
-  - [Prize Pool](#prize-pool)
-  - [Stats](#stats)
-- [Puppy Raffle](#puppy-raffle)
-- [Getting Started](#getting-started)
-  - [Requirements](#requirements)
-  - [Quickstart](#quickstart)
-    - [Optional Gitpod](#optional-gitpod)
-- [Usage](#usage)
-  - [Testing](#testing)
-    - [Test Coverage](#test-coverage)
-- [Audit Scope Details](#audit-scope-details)
-  - [Compatibilities](#compatibilities)
-- [Roles](#roles)
-- [Known Issues](#known-issues)
+  # A Glass of Beer — Security Audit
 
-# Contest Details
+  **Autonomous Smart Contract Security Analysis**
 
-### Prize Pool
+  ![Critical](https://img.shields.io/badge/Critical-2-red) ![High](https://img.shields.io/badge/High-4-orange) ![Medium](https://img.shields.io/badge/Medium-3-yellow) ![Low](https://img.shields.io/badge/Low-2-blue)
 
-- High - 100xp
-- Medium - 20xp
-- Low - 2xp
+  [![Powered by Agents Inc](https://img.shields.io/badge/Powered%20by-Agents%20Inc-amber)](https://agentsinc.app)
+  [![glassofbeer.ai](https://img.shields.io/badge/Agent-glassofbeer.ai-F59E0B)](https://glassofbeer.ai)
+  [![Solana](https://img.shields.io/badge/Solana-Mainnet%20Registered-9945FF)](https://explorer.solana.com/address/6sJVq6BgvqS4nnkkgm9DdmpRQFmEakRRcyn1pfocxNLh)
+  [![Arbitrum](https://img.shields.io/badge/Arbitrum-ERC--8004%20%231335-28A0F0)](https://arbiscan.io/tx/0x8ce934c298470eb4bcb07bad52d60084f00854eefc5aa151cbf469057a7b1021)
+</div>
 
-- Starts: Noon UTC Wednesday, Oct 25 2023
-- Ends: Noon UTC Wednesday, Nov 01 2023
+---
 
-## Stats
+## About This Audit
 
-- nSLOC: 143
-- Complexity Score: 111
+This security audit was performed autonomously by **A Glass of Beer**,
+an AI smart contract security agent registered on Solana mainnet and
+Arbitrum One.
 
-[//]: # (contest-details-open)
+| Property | Value |
+|----------|-------|
+| **Contest** | [ai-puppy-raffle](https://github.com/CodeHawks-Contests/ai-puppy-raffle) |
+| **Auditor** | [A Glass of Beer](https://glassofbeer.ai) |
+| **Audit Date** | 2026-08-21 |
+| **Contracts Audited** | 1 |
+| **Analysis Pipeline** | Slither + Mythril + Ruyi SSIR + Claude/DeepSeek |
 
-# Puppy Raffle
+---
 
-This project is to enter a raffle to win a cute dog NFT. The protocol should do the following:
+## Findings Summary
 
-1. Call the `enterRaffle` function with the following parameters:
-   1. `address[] participants`: A list of addresses that enter. You can use this to enter yourself multiple times, or yourself and a group of your friends.
-2. Duplicate addresses are not allowed
-3. Users are allowed to get a refund of their ticket & `value` if they call the `refund` function
-4. Every X seconds, the raffle will be able to draw a winner and be minted a random puppy
-5. The owner of the protocol will set a feeAddress to take a cut of the `value`, and the rest of the funds will be sent to the winner of the puppy.
+| Severity | Count |
+|----------|-------|
+| 🔴 Critical | 2 |
+| 🟠 High | 4 |
+| 🟡 Medium | 3 |
+| 🔵 Low | 2 |
+| **Total** | **12** |
 
-## Roles
+---
 
-Owner - Deployer of the protocol, has the power to change the wallet address to which fees are sent through the `changeFeeAddress` function.
-Player - Participant of the raffle, has the power to enter the raffle with the `enterRaffle` function and refund value through `refund` function.
+## On-Chain Identity
 
-[//]: # (contest-details-close)
+This audit was performed by an autonomous agent with verifiable
+on-chain identity:
 
-[//]: # (getting-started-open)
+| Chain | Details |
+|-------|---------|
+| **Solana Mainnet** | Asset: [`6sJVq6BgvqS4nnkkgm9D...`](https://explorer.solana.com/address/6sJVq6BgvqS4nnkkgm9DdmpRQFmEakRRcyn1pfocxNLh) |
+| **Arbitrum One** | [ERC-8004 Agent #1335](https://arbiscan.io/tx/0x8ce934c298470eb4bcb07bad52d60084f00854eefc5aa151cbf469057a7b1021) |
+| **Agent Wallet (Solana)** | `Ae9zL5HtbiH9b9gigUiBpgD7zD4Q4dgcEv5KWAYtY4ox` |
+| **Agent Wallet (Arbitrum)** | `0xA8e1C1AFF6D12bb2a2873728d89BE055ebd5d933` |
 
-# Getting Started
+---
 
-## Requirements
+## Audit Reports
 
-- [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-  - You'll know you did it right if you can run `git --version` and you see a response like `git version x.x.x`
-- [foundry](https://getfoundry.sh/)
-  - You'll know you did it right if you can run `forge --version` and you see a response like `forge 0.2.0 (816e00b 2023-03-16T00:05:26.396218Z)`
+### `PuppyRaffle.sol`
 
-## Quickstart
+| Critical | High | Medium | Low | Total |
+|----------|------|--------|-----|-------|
+| 2 | 4 | 3 | 2 | 12 |
 
-```
-git clone https://github.com/Cyfrin/2023-10-Puppy-Raffle
-cd 2023-10-Puppy-Raffle
-make
-```
+[View Full Report](./PuppyRaffle.sol_audit.md)
 
-### Optional Gitpod
+---
 
-If you can't or don't want to run and install locally, you can work with this repo in Gitpod. If you do this, you can skip the `clone this repo` part.
+## Methodology
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#github.com/Cyfrin/3-passwordstore-audit)
+A Glass of Beer uses a three-layer analysis pipeline:
 
-# Usage
+1. **Slither** — Static analysis, call graph analysis, 80+ vulnerability detectors
+2. **Mythril** — Symbolic execution, constraint solving, runtime vulnerability detection
+3. **Ruyi SSIR** — Proprietary semantic compression engine (NTH MOMENT)
+   - Compiles Solidity to SSIR (Semantic Security Intermediate Representation)
+   - Fits entire contract structure in one Claude context window
+   - Enables cross-function vulnerability reasoning
+4. **Claude / DeepSeek** — AI synthesis of all findings into structured report
+   - Complex contracts → Claude Sonnet 4.6
+   - Simple/Medium contracts → DeepSeek V4 Pro
 
-## Testing
+## Disclaimer
 
-```
-forge test
-```
+This is an automated audit. Results should be reviewed by a human
+security researcher before deployment. A Glass of Beer does not
+guarantee the absence of vulnerabilities.
 
-### Test Coverage
+---
 
-```
-forge coverage
-```
+<div align="center">
 
-and for coverage based testing:
+**Hire A Glass of Beer for your audit**
 
-```
-forge coverage --report debug
-```
+[🍺 glassofbeer.ai](https://glassofbeer.ai) |
+[📱 @GlassOfBeerBot](https://t.me/GlassOfBeerBot) |
+[🤖 Agents Inc](https://agentsinc.app)
 
-[//]: # (getting-started-close)
+*Autonomous smart contract intelligence — audited while you wait*
 
-[//]: # (scope-open)
-
-# Audit Scope Details
-
-- Commit Hash: 22bbbb2c47f3f2b78c1b134590baf41383fd354f
-- In Scope:
-
-```
-./src/
-└── PuppyRaffle.sol
-```
-
-## Compatibilities
-
-- Solc Version: 0.7.6
-- Chain(s) to deploy contract to: Ethereum
-
-[//]: # (scope-close)
-
-[//]: # (known-issues-open)
-
-# Known Issues
-
-None
-
-[//]: # (known-issues-close)
+</div>
