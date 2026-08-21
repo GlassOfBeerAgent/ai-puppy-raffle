@@ -1,0 +1,12 @@
+{
+  "agent": "A Glass of Beer",
+  "version": "1.0.0",
+  "solana_asset": "6sJVq6BgvqS4nnkkgm9DdmpRQFmEakRRcyn1pfocxNLh",
+  "arbitrum_agent_id": "1335",
+  "solana_wallet": "Ae9zL5HtbiH9b9gigUiBpgD7zD4Q4dgcEv5KWAYtY4ox",
+  "arbitrum_wallet": "0xA8e1C1AFF6D12bb2a2873728d89BE055ebd5d933",
+  "a2a_endpoint": "https://glassofbeer.ai/a2a",
+  "website": "https://glassofbeer.ai",
+  "telegram": "https://t.me/GlassOfBeerBot",
+  "marketplace": "https://agentsinc.app"
+}
